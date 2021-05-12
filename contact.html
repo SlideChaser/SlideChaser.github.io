@@ -65,40 +65,101 @@
             <!--/.Navbar-->
           </div>
 
-          <div class="container d-flex justify-content-center mt-5">
-            <h1>
-              &ltcontact-me&gt
-            </h1>
-          </div>
+          <!--Section: Contact v.2-->
+          <section class="mb-4">
 
-          
+            <!--Section heading-->
+            <h1 class="h1-responsive text-center my-4 mx-5">&ltcontact-me&gt</h1>
+            <!--Section description-->
+            <p class="text-center w-responsive mx-5 mb-5">Feel free to call, text, email, or pm. Note that I may not answer calls right away with how many spam calls I recieve daily.</p>
 
-          <div class="row justify-content-center mt-5 mx-2">
-            <div class="col-md-3 border rounded">
-              <p>
-                &ltphone-number&gt
-              </p>
-              <p>
-                (550)-666-2884
-              </p>
+            <div class="row mx-5">
+
+                <!--Grid column-->
+                <div class="col-md-9 mb-md-0 mb-5">
+                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="name" name="name" class="form-control">
+                                    <label for="name" class="">&ltname&gt</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="email" name="email" class="form-control">
+                                    <label for="email" class="">&ltemail&gt</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="subject" name="subject" class="form-control">
+                                    <label for="subject" class="">&ltsubject&gt</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-12">
+
+                                <div class="md-form">
+                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                    <label for="message">&ltmessage&gt</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                    </form>
+
+                    <div class="text-center text-md-left">
+                        <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">&ltsend&gt</a>
+                    </div>
+                    <div class="status"></div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-3 text-center">
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                            <p>Fresno, CA 93727, USA</p>
+                        </li>
+
+                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                            <p>+1-559-666-2884</p>
+                        </li>
+
+                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                            <p>slidechaser@gmail.com</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
             </div>
-            <div class="col-md-3 border rounded">
-              <p>
-                &ltemail&gt
-              </p>
-              <p>
-                slidechaser@gmail.com
-              </p>
-            </div>
-            <div class="col-md-3 border rounded">
-              <p>
-                &ltinstagram&gt
-              </p>
-              <p>
-                @austin_reilly_93
-              </p>
-            </div>
-          </div>
+
+          </section>
+          <!--Section: Contact v.2-->
 
           <footer class="text-center mt-5" style="background-color: #f1f1f1;">
             <!-- Grid container -->
