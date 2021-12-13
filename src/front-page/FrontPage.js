@@ -1,45 +1,37 @@
 import React, {useState, useEffect, useRef} from 'react';
 
+import '../css/components/grid-system/_frontGrid.scss';
+
 function FrontPage(){
 
 	const [counter, setCounter] = useState(100);
+	const [click, setClick] = useState(false);
 	const intervalRef = useRef(null);
-
-	useEffect(()=>{
-		return ()=> stopCounter(); // Stop counter when app is unmounted
-	}, []);
 
 	const circleAdjustStyle = {
 		height: `${counter}px`,
 		width: `${counter}px`
 	};
 
-	function startCounter(){
-		if(intervalRef.current) return;
-		intervalRef.current = setInterval(()=> setCounter(prevCounter => prevCounter + 1), 10);
-		console.log(intervalRef.current);
-	}
-
-	function reverseCounter(){
-		if(intervalRef.current){
-      clearInterval(intervalRef.current);
-      intervalRef.current = setInterval(()=> setCounter(prevCounter => prevCounter - 1), 1);
-    }
-	}
-
-	function stopCounter(){
-		if(intervalRef.current){
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-	}
-
 	useEffect(()=>{
-		if(counter < 101){
-			clearInterval(intervalRef.current);
-			intervalRef.current = null;
+		clearInterval(intervalRef.current);
+		if(click){
+			if(counter > 200){
+				clearInterval(intervalRef.current);
+				intervalRef.current = null;
+			}else{
+				intervalRef.current = setInterval(()=> setCounter(prevCounter => prevCounter + 1), 10);
+			}
 		}
-	}, [counter]);
+		else if(!click){
+			if(counter < 101){
+				clearInterval(intervalRef.current);
+				intervalRef.current = null;
+			}else{
+				intervalRef.current = setInterval(()=> setCounter(prevCounter => prevCounter - 1), 1);
+			}
+		}
+	}, [counter, click]);
 
 
 	const [theTime, setTheTime] = useState(new Date().toLocaleString());
@@ -58,7 +50,6 @@ function FrontPage(){
 			fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
 			.then(function(poop){return poop.json();})
 			.then(obj=>{
-				console.log(obj);
 				setPokemon(obj);
 			})
 			.catch(err=>console.log('error:', err));
@@ -75,13 +66,12 @@ function FrontPage(){
 				{show
 				? <p>{pokemon.name}</p>
 				: <button onClick={()=>setShow(true)}>hello</button>}
-				<h1>update?</h1>
 			</div>
 			<div className="fuzzyBallTest">
 				{/* If you try to return a function here it will run immediately. You have to put it in an arrow function so that it Functions like a callback */}
 				<div
-					onMouseDown={startCounter}
-					onMouseUp={reverseCounter}
+					onMouseDown={()=> setClick(true)}
+					onMouseUp={()=> setClick(false)}
 					onMouseEnter={()=>setShow(false)} className="fuzzyBall"
 					style={circleAdjustStyle}
 				/>

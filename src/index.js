@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import './css/app.scss';
+import './css/index.scss';
 import FrontPage from './front-page/FrontPage';
 
 ReactDOM.render(
