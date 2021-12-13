@@ -29,10 +29,10 @@ function FrontPage(){
 
 	useEffect(()=>{
 		if(counter < 101){
-			clearInterval(intervalRef.current)
+			clearInterval(intervalRef.current);
 			intervalRef.current = null;
 		}
-	}), [counter];
+	}, [counter]);
 
 
 	const [theTime, setTheTime] = useState(new Date().toLocaleString());
