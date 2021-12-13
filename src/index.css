@@ -26,28 +26,6 @@ body{
   grid-template-areas: "tCell tCell header header header header" "tCell tCell uMid uMid fuzzBall fuzzBall" "lMid lMid lMid lMid fuzzBall fuzzBall" "foot foot foot foot foot foot";
 }
 
-.testArea {
-  grid-area: tCell;
-}
-
-.fuzzyBallTest {
-  grid-area: fuzzBall;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.fuzzyBallTest .fuzzyBall {
-  opacity: 50%;
-  transition: opacity 0.3s;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 0 10px 10px hotpink;
-}
-.fuzzyBallTest .fuzzyBall:hover {
-  opacity: 100%;
-  transition: opacity 0.3s;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -98,4 +76,26 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.testArea {
+  grid-area: tCell;
+}
+
+.fuzzyBallTest {
+  grid-area: fuzzBall;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fuzzyBallTest .fuzzyBall {
+  opacity: 50%;
+  transition: opacity 0.3s;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 10px hotpink;
+}
+.fuzzyBallTest .fuzzyBall:hover {
+  opacity: 100%;
+  transition: opacity 0.3s;
 }
