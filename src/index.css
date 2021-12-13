@@ -89,13 +89,13 @@ body {
   align-items: center;
 }
 .fuzzyBallTest .fuzzyBall {
-  opacity: 50%;
+  opacity: .5;
   transition: opacity 0.3s;
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 10px 10px hotpink;
 }
 .fuzzyBallTest .fuzzyBall:hover {
-  opacity: 100%;
+  opacity: 1;
   transition: opacity 0.3s;
 }
