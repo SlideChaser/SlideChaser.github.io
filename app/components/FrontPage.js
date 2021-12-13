@@ -20,37 +20,20 @@ function FrontPage(){
 		console.log(intervalRef.current);
 	}
 
-	function stopCounter(){
-		clearInterval(intervalRef.current);
-		intervalRef.current = null;
-	}
-
 	function reverseCounter(){
-		// if(intervalRef.current){
-		// 	clearInterval(intervalRef.current);
-		// 	intervalRef.current = setInterval(()=> setCounter(prevInterval => handleReverse(prevInterval)), 10);
-		// }
-
 		if(intervalRef.current){
       clearInterval(intervalRef.current);
-      intervalRef.current = null;
+      intervalRef.current = setInterval(()=> setCounter(prevCounter => prevCounter - 1), 1);
     }
-
-		while(counter > 99){
-			setCounter(prevCounter => prevCounter - 1);
-		}
 	}
-	
-	function handleReverse(interval){
-		if(counter > 99) return interval = interval - 1;
-		else{
-			stopCounter();
-		}
 
-		// while(counter > 99){
-		// 	intervalRef.current = setInterval(()=> setCounter(prevInterval => prevInterval - 1), 10);
-		// }
-	}
+	useEffect(()=>{
+		if(counter < 101){
+			clearInterval(intervalRef.current)
+			intervalRef.current = null;
+		}
+	}), [counter];
+
 
 	const [theTime, setTheTime] = useState(new Date().toLocaleString());
 	const [show, setShow] = useState(false);
