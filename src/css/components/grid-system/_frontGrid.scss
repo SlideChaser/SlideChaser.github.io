@@ -1,6 +1,10 @@
+.gradientBack{
+	background-color: black;
+}
+	
 .frontGrid{
 	display: grid;
-
+	
 	height: 100vh;
 	width: 100vw;
 
@@ -8,11 +12,16 @@
 	grid-template-rows: repeat(4, 1fr);
 
 	grid-template-areas:
-		'tCell tCell header header header header'
+		'header header header header header header'
 		'tCell tCell uMid uMid fuzzBall fuzzBall'
-		'lMid lMid lMid lMid fuzzBall fuzzBall'
+		'tCell tCell lMid lMid fuzzBall fuzzBall'
 		'foot foot foot foot foot foot'
 	;
+
+	color: white;
+
+	background: rgb(0,0,0);
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8841736523711047) 83%, rgba(255,255,255,0.19509802211900384) 100%); 
 }
 
 .testArea{
@@ -41,4 +50,18 @@
 		opacity: 1;
 		transition: opacity .3s;
 	}
+}
+
+.gridBack{
+	grid-column: 1 / 7;
+	grid-row: 1 / 5;
+
+	height: 100%;
+	width: 100%;
+
+	padding: 1rem;
+}
+
+.svgGlow{
+  filter: drop-shadow(0 0 10px #fff);
 }
