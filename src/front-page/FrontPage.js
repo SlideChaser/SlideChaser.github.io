@@ -1,62 +1,36 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
+
+import {animated, useSpring} from 'react-spring';
 
 import '../css/components/grid-system/_frontGrid.scss';
 
 function FrontPage(){
 
-	// Set states for fuzzy blow up light ball
-	const [counter, setCounter] = useState(100);
-	const [click, setClick] = useState(false);
-	const intervalRef = useRef(null);
+	const [clicked, setClicked] = useState(false);
+	const [hover, setHover] = useState(false);
 
-	// Set adjustable style for fuzzy blow up light ball
-	const circleAdjustStyle = {
-		height: `${counter}px`,
-		width: `${counter}px`
-	};
+	const {size} = useSpring({
+		size: clicked ? 200 : 100,
+		from: {
+			size: 200
+		},
+		config: {duration: clicked ? 1000 : 100}
+	});
 
-	// Fuzzy blow up light ball effect
-	useEffect(()=>{
-		clearInterval(intervalRef.current);
-		if(click){
-			if(counter > 200){
-				clearInterval(intervalRef.current);
-				intervalRef.current = null;
-			}else{
-				intervalRef.current = setInterval(()=> setCounter(prevCounter => prevCounter + 1), 10);
-			}
-		}
-		else if(!click){
-			if(counter < 101){
-				clearInterval(intervalRef.current);
-				intervalRef.current = null;
-			}else{
-				intervalRef.current = setInterval(()=> setCounter(prevCounter => prevCounter - 1), 1);
-			}
-		}
-	}, [counter, click]);
+	function checkHover(prev){
+		setHover(prev ? true : false);
+		// setter debug:
+		// console.log(hover);
+		setTimeout(()=>{
+			hover ? setClicked(true) : setClicked(false);
+		}, 250);
+	}
 
-	// function startCounter(dir){
-	// 	if(counter > 200 || counter < 101){
-	// 		return;
-	// 	} else {
-	// 		clearInterval(intervalRef.current);
-	// 		intervalRef.current = null;
-	// 	}
-  //   intervalRef.current = setInterval(()=>{
-	// 			setCounter(prevCounter => dir === '+' ? prevCounter + 1 : prevCounter - 1);
-	// 			console.log(counter);
-	// 	}, 10);
-  // }
-
+	// render debug:
 	// useEffect(()=>{
-	// 	return ()=> stopCounter();
-	// });
-
-	// function stopCounter(){
-	// 	clearInterval(intervalRef.current);
-	// 	intervalRef.current = null;
-	// }
+	// 	console.log('render');
+	// })
+	
 
 	return(
 		<div className='frontGrid'>
@@ -131,15 +105,17 @@ function FrontPage(){
 			</svg>
 			<div className="fuzzyBallTest">
 				{/* If you try to return a function here it will run immediately. You have to put it in an arrow function so that it Functions like a callback */}
-				<div
+				<animated.div
 					className="fuzzyBall hoverOp1"
-					style={circleAdjustStyle}
-					// onMouseDown={()=> startCounter('+')}
-					// onMouseUp={()=> startCounter('-')}
-					onMouseDown={()=> setClick(true)}
-					onMouseUp={()=> setClick(false)}
-					onTouchStart={()=> setClick(true)}
-					onTouchEnd={()=> setClick(false)}
+
+					style={{height: size, width: size}}
+					
+					onMouseDown={()=> setClicked(true)}
+					onMouseUp={()=> setClicked(false)}
+					onTouchStart={()=> setClicked(true)}
+					onTouchEnd={()=> setClicked(false)}
+					
+					onMouseLeave={()=> checkHover(false)}
 				/>
 			</div>
 		</div>
