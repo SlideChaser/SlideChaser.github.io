@@ -138,6 +138,8 @@ function FrontPage(){
 					// onMouseUp={()=> startCounter('-')}
 					onMouseDown={()=> setClick(true)}
 					onMouseUp={()=> setClick(false)}
+					onTouchStart={()=> setClick(true)}
+					onTouchEnd={()=> setClick(false)}
 				/>
 			</div>
 		</div>

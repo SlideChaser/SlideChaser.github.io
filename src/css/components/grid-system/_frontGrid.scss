@@ -9,8 +9,8 @@
 
 	grid-template-areas:
 		'header header header header header header'
-		'tCell tCell uMid uMid fuzzBall fuzzBall'
-		'tCell tCell lMid lMid fuzzBall fuzzBall'
+		'midLeft midLeft cent midRight midRight midRight'
+		'midLeft midLeft cent midRight midRight midRight'
 		'foot foot foot foot foot foot'
 	;
 
@@ -42,10 +42,9 @@
 }
 
 .fuzzyBallTest{
-	grid-area: fuzzBall;
+	grid-area: cent;
 
 	display: flex;
-	display: none;
 
 	justify-content: center;
 	align-items: center;
