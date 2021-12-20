@@ -42,7 +42,11 @@
 	justify-content: center;
 	align-items: center;
 
+	pointer-events: none;
+
 	.fuzzyBall{
+		pointer-events: visible;
+
 		background-color: white;
 		border-radius: 50%;
 

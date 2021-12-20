@@ -38,8 +38,6 @@ const paths = {
 function SVGHoverPath(props){
 	const [{opacity}, set] = useSpring(()=>({opacity: .5}));
 
-	console.log(props);
-
 	return(
 			<animated.path
 				style={{opacity: opacity}}
