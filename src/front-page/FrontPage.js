@@ -88,7 +88,6 @@ function FrontPage(){
 				<SVGHoverPath path={paths.path4}/>
 			</svg>
 			<div className="fuzzyBallTest">
-				{/* If you try to return a function here it will run immediately. You have to put it in an arrow function so that it Functions like a callback */}
 				<animated.div
 					className="fuzzyBall hoverOp1"
 
