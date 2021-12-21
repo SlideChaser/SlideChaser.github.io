@@ -4,6 +4,7 @@ import {animated, useSpring} from 'react-spring';
 
 import '../css/components/grid-system/_frontGrid.scss';
 
+// The SVG paths for the tron tendrils
 const paths = {
 	path1:`
 		M 150,-2000
@@ -35,6 +36,7 @@ const paths = {
 	`
 };
 
+// This functional component allows for multiple spring hover animations.
 function SVGHoverPath(props){
 	const [{opacity}, set] = useSpring(()=>({opacity: .5}));
 
@@ -85,6 +87,7 @@ function FrontPage(){
 				<SVGHoverPath path={paths.path3}/>
 				<SVGHoverPath path={paths.path4}/>
 			</svg>
+
 			<div className="fuzzyBallTest">
 				<animated.div
 					className="fuzzyBall hoverOp1"
@@ -99,7 +102,7 @@ function FrontPage(){
 					onMouseEnter={()=> set({opacity: 1})}
 					onMouseLeave={()=>{
 						checkHover(false);
-						set({opacity: .5})
+						set({opacity: .5});
 					}}
 				/>
 			</div>

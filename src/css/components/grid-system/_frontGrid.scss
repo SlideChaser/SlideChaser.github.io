@@ -1,27 +1,28 @@
 .frontGrid{
 	display: grid;
 	
+	// Grid Settings
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	
+	grid-template-areas:
+	'header header header header header header'
+	'midLeft midLeft cent midRight midRight midRight'
+	'midLeft midLeft cent midRight midRight midRight'
+	'foot foot foot foot foot foot'
+	;
+	
+	// Styles
 	height: 100vh;
 	width: 100vw;
 
-	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(4, 1fr);
-
-	grid-template-areas:
-		'header header header header header header'
-		'midLeft midLeft cent midRight midRight midRight'
-		'midLeft midLeft cent midRight midRight midRight'
-		'foot foot foot foot foot foot'
-	;
-
-	// overflow: hidden;
-
-	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 83%, rgba(0,0,0,0.7609243526512167) 100%);
-
 	color: white;
 
+	// the white gradient at the top of the page
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 83%, rgba(0,0,0,0.7609243526512167) 100%);
 }
 
+// These give some necessary styles for the tron tendrils
 .svgBack{
 	grid-column: 1 / 7;
 	grid-row: 1 / 5;
@@ -34,6 +35,7 @@
 	filter: drop-shadow(0 0 10px #f0f);
 }
 
+// Testing area for interactive content
 .fuzzyBallTest{
 	grid-area: cent;
 
@@ -42,9 +44,11 @@
 	justify-content: center;
 	align-items: center;
 
+	// partA1 makes the div click through
 	pointer-events: none;
 
 	.fuzzyBall{
+		// partA2 makes the ball in the click through div clickable, giving the ball the effect of being standalone
 		pointer-events: visible;
 
 		background-color: white;
