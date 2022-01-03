@@ -86,6 +86,7 @@ function FrontPage(){
 				<SVGHoverPath path={paths.path2}/>
 				<SVGHoverPath path={paths.path3}/>
 				<SVGHoverPath path={paths.path4}/>
+				<path fill='#0f0' d='M 1300 170 C 1274.682 231.832 1277.119 276.919 1348.142 415.635 C 1349.833 418.87 1349.98 421.958 1350 425.708 L 1350 458.057 C 1373.258 437.249 1370.821 413.487 1350 369.618 C 1322.687 319.656 1308.959 282.017 1300 243.882 C 1300 237.552 1300.087 237.807 1300 235.933 Z'/>
 			</svg>
 
 			<div className="fuzzyBallTest">
