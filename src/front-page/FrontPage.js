@@ -51,20 +51,7 @@ function SVGHoverPath(props){
 }
 
 function FrontPage(){
-
-	// const [clicked, setClicked] = useState(false);
-	// const [hover, setHover] = useState(false);
 	const [vine, setVine] = useState(false);
-
-	// const {size} = useSpring({
-	// 	size: clicked ? 200 : 100,
-	// 	from: {
-	// 		size: 200
-	// 	},
-	// 	config: {duration: clicked ? 1000 : 100}
-	// });
-
-	// const [ballStyles, setBallOp] = useSpring(()=>({opacity: .5}));
 	const [vineStyles, setVineOp] = useSpring(()=>({opacity: 0, display: 'none'}));
 
 	useEffect((setVine = setVineOp)=>{
@@ -78,15 +65,6 @@ function FrontPage(){
 			}, 400);
 		}
 	}, [vine]);
-
-	// function checkHover(prev){
-	// 	setHover(prev ? true : false);
-	// 	// setter debug:
-	// 	// console.log(hover);
-	// 	setTimeout(()=>{
-	// 		hover ? setClicked(true) : setClicked(false);
-	// 	}, 250);
-	// }
 
 	return(
 		<div className='frontGrid'>
@@ -119,25 +97,6 @@ function FrontPage(){
 
 				<animated.path onClick={()=> window.location = 'https://www.a-reilly.dev'} style={vineStyles} fill='#151' d='M 1300.046 479.632 C 1288.385 489.597 1285.394 494.309 1276.142 513 C 1269.107 528.294 1272.828 554.702 1299.617 574.31 C 1347.9483 609.872 1411.335 611.164 1444.611 680.996 C 1477.335 740.921 1530.1303 769.018 1572.89 813.029 C 1554.549 752.939 1503.006 714.984 1490.355 661.567 C 1465.303 570.837 1344.695 560.878 1318.194 540.317 C 1309.846 535.042 1300.689 537.72 1300 523.225'/>
 			</svg>
-
-			{/* <div className="fuzzyBallTest">
-				<animated.div
-					className="fuzzyBall hoverOp1"
-
-					style={{height: size, width: size, opacity: ballStyles.opacity}}
-					
-					onMouseDown={()=> setClicked(true)}
-					onMouseUp={()=> setClicked(false)}
-					onTouchStart={()=> setClicked(true)}
-					onTouchEnd={()=> setClicked(false)}
-					
-					onMouseEnter={()=> setBallOp({opacity: 1})}
-					onMouseLeave={()=>{
-						checkHover(false);
-						setBallOp({opacity: .5});
-					}}
-				/>
-			</div> */}
 		</div>
 	);
 }
