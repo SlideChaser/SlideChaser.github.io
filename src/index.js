@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
+import {HashRouter, Route, Routes} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 import './css/index.scss';
 import FrontPage from './front-page/FrontPage';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <FrontPage />
-  </React.StrictMode>,
+  <HashRouter>
+		<Routes>
+			<Route path='/' element={<FrontPage/>}/>
+		</Routes>
+  </HashRouter>,
   document.getElementById('root') 
 );
 
