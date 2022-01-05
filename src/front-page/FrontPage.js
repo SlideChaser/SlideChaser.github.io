@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {Redirect} from 'react-router-dom';
 import {animated, useSpring} from 'react-spring';
 
 import '../css/components/grid-system/_frontGrid.scss';
