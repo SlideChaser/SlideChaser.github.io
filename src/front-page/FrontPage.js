@@ -68,10 +68,6 @@ function FrontPage(){
 	// const [ballStyles, setBallOp] = useSpring(()=>({opacity: .5}));
 	const [vineStyles, setVineOp] = useSpring(()=>({opacity: 0, display: 'none'}));
 
-	function showVine(){
-		setVineOp({opacity: 1});
-	}
-
 	useEffect((setVine = setVineOp)=>{
 		if(vine){
 			setVine({opacity: 1, display: 'block'});
